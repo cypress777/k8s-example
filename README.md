@@ -41,7 +41,7 @@ $ docker stop <name>
 creat the deployment  
 
 ```shell
-$ kubectl create -f git-cpu.yaml
+$ kubectl create -f k8s-cpu.yaml
 ```
 
 ## Mount persistent volume  
@@ -56,7 +56,7 @@ $ kubectl create -f pvc.yaml
 create deployment
 
 ```shell
-$ kubectl create -f git-vol.yaml
+$ kubectl create -f k8s-vol.yaml
 ```  
 
 validate  
@@ -68,7 +68,7 @@ $ exit
 $ kubectl exec -it <another pod name> -- /bin/bash
 $ cat /cyp/cyp.tmp
 $ exit
-$ kubectl delete -f git-vol.yaml
+$ kubectl delete -f k8s-vol.yaml
 $ cat /tmp/data/cyp.tmp
 ```  
 the message written into cyp.tmp still exists even after pods deleted.
