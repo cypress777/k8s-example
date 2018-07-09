@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gittest-deployment
+  labels:
+    app: gittest
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gittest
+  template:
+    metadata:
+      labels:
+        app: gittest
+    spec:
+      containers:
+      - name: git-test
+        image: git-test:v1
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+        ports:
+        - containerPort: 80
