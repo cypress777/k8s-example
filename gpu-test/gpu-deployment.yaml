@@ -16,9 +16,8 @@ spec:
     spec:
       containers:
       - name: git-test
-        image: git-test:v1
+        image: vec:cu9.0
         resources:
           limits:
             nvidia.com/gpu: 1
-        ports:
-        - containerPort: 80
+
