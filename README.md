@@ -36,12 +36,12 @@ stop the container
 $ docker stop <name>  
 ```
 
-## Create k8s deployment  
+## Create k8s cpu deployment  
 
 creat the deployment  
 
 ```shell
-$ kubectl create -f k8s-cpu.yaml
+$ kubectl create -f cpu-deployment.yaml
 ```
 
 ## Mount persistent volume  
@@ -72,3 +72,16 @@ $ kubectl delete -f k8s-vol.yaml
 $ cat /tmp/data/cyp.tmp
 ```  
 the message written into cyp.tmp still exists even after pods deleted.
+
+## Create k8s gpu deployment  
+
+creat the deployment  
+
+```shell
+$ cd gpu-test
+
+(this should executed on the worker nodes machine)
+$ build -t vec:cu9.0 .
+
+$ kubectl create -f gpu-deployment.yaml
+```
