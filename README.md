@@ -7,7 +7,7 @@ just some simple tests to learn kube
 build this image  
 
 ```shell
-$:docker build -t <name>:<version> http://gitlab.sho.hypereal.com/yiping.chen/kube-test.git  
+$:docker build -t <name>:<version> gitrepo  
 ```  
 
 check whether this image has been succefully built  
