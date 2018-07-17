@@ -56,7 +56,7 @@ $ kubectl create -f pvc.yaml
 create deployment
 
 ```shell
-$ kubectl create -f k8s-vol.yaml
+$ kubectl create -f cpu-deployment-pv.yaml
 ```  
 
 validate  
