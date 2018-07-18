@@ -1,35 +1,35 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: cloth-job-1
+  name: my-job
   labels:
-    app: clothdnn
+    app: mydnn
 spec:
   backoffLimit: 2
   template:
     metadata:
       labels:
-        app: clothdnn
+        app: mydnn
     spec:
       restartPolicy: Never
       containers:
-      - name: cloth-test
-        image: cloth-test:v1
+      - name: my-test
+        image: my-test:v1
         command: ["python"]
         args: ["run_train.py"]
         volumeMounts:
         - mountPath: /data
-          name: cloth-volume
+          name: data-volume
         - mountPath: /usr/src/cloth-dnn-test
           name: script-volume
         resources:
           limits:
             nvidia.com/gpu: 1
       volumes:
-      - name: cloth-volume
+      - name: data-volume
         nfs:
-          server: 10.0.10.203
+          server: 10.0.*.*
           path: /data
       - name: script-volume
         hostPath:
-          path: /home/chenyiping/Workspace/Gitlab/cloth_dnn
+          path: /script/dir
