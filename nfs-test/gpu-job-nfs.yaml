@@ -1,19 +1,17 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: cloth-deployment-1
+  name: cloth-job-1
   labels:
     app: clothdnn
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: clothdnn
+  backoffLimit: 2
   template:
     metadata:
       labels:
         app: clothdnn
     spec:
+      restartPolicy: Never
       containers:
       - name: cloth-test
         image: cloth-test:v1
